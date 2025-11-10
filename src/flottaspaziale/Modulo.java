@@ -9,15 +9,12 @@ package flottaspaziale;
  *
  * @author lleshi.alessandro
  */
-public class FlottaSpaziale {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-        
-        
-    }
+public class Modulo {
+    private String statoIntegrita;
+    private boolean stato;
     
+    //costruttore della classe
+    public Modulo(String statoIntegrita){
+        this.statoIntegrita = statoIntegrita;
+    }
 }
