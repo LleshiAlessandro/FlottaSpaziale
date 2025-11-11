@@ -13,11 +13,10 @@ import java.util.Random;
  */
 public class EventiManager {
     private Random rdn = new Random();
-    private int i = rdn.nextInt(4) + 1;//random da 1 a 4, che mi sceglie l'evento della classe enum
     
     //costruttore della classe
-    public EventiManager(){
-        
+    public EventiManager(int r){
+        r = rdn.nextInt(4) + 1;//random da 1 a 4, che mi sceglie l'evento della classe enum
     }
     
     //enumerato degli eventi, ci sono i miei eventi
@@ -26,5 +25,10 @@ public class EventiManager {
         cura,//cura per l'equipaggio
         riparazione,//riparazione della astronave o della flotta intera
         asteroide;//la astronave o la flotta finisce su un campo di asteroidi
+    }
+    
+    //metodo per gestire il mi oenumerato del mio Evento
+    public void gestioneEventi(){
+        
     }
 }

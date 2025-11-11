@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Astronave {
     private ArrayList <MembroEquipaggio> equipaggio = new ArrayList();
     private ArrayList <Modulo> moduli = new ArrayList();
+    private int vita;
     
     //costruttore della classe
     public Astronave(){
@@ -35,6 +36,14 @@ public class Astronave {
         return moduli;
     }
     
+    //set e get della vita
+    public void setVita(int vita){
+        this.vita = vita;
+    }
+    public int getVita(){
+        return vita;
+    }
+    
     //get del numero dei membri (ritorna un intero. Un solo numero)
     public int getNumEquipaggio(){
         return equipaggio.size();
@@ -44,5 +53,27 @@ public class Astronave {
     public int getNumModulo(){
         return moduli.size();
     }
+    
+    //aggiungi un membro e rimuovi un membro dalla lista dell' equipaggio
+    public ArrayList<MembroEquipaggio> addMembro(MembroEquipaggio m1){
+        equipaggio.add(m1);
+        return equipaggio;
+    }
+    public ArrayList<MembroEquipaggio> removeMembro(MembroEquipaggio m1){
+        equipaggio.remove(m1);
+        return equipaggio;
+    }
+    
+    //aggiungi un modulo e rimuovi un modulo dalla lista deli moduli
+    public ArrayList<Modulo> addModulo(Modulo m1){
+        moduli.add(m1);
+        return moduli;
+    }
+    public ArrayList<Modulo> removeModulo(Modulo m1){
+        moduli.remove(m1);
+        return moduli;
+    }
+    
+    //fare i metodi per la gestione degli eventi
     
 }

@@ -29,7 +29,17 @@ public class Flotta {
     }
     
     //get numero delle astronavi che ci snon nella flotta
-    public int getNumAtronaviInFlotta(){
+    public int getNumAstronaviInFlotta(){
         return astronavi.size();
+    }
+    
+    //aggiungo e rimuovo un astronave dalle astronavi
+    public ArrayList<Astronave> addAstronave(Astronave a1){
+        astronavi.add(a1);
+        return astronavi;
+    }
+    public ArrayList<Astronave> removeAstronave(Astronave a1){
+        astronavi.remove(a1);
+        return astronavi;
     }
 }
