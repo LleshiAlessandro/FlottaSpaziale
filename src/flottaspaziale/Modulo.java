@@ -35,5 +35,4 @@ public class Modulo {
         return statoIntegrita;
     }
     
-    
 }

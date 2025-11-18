@@ -6,6 +6,7 @@
 package flottaspaziale;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -41,5 +42,19 @@ public class Flotta {
     public ArrayList<Astronave> removeAstronave(Astronave a1){
         astronavi.remove(a1);
         return astronavi;
+    }
+    
+    //scelgo l'astronave randomica dalla flotta, alla quale capiterà un evento
+    Random astr = new Random();
+    Astronave astrRandom = astronavi.get(astr.nextInt(astronavi.size()));
+    
+    //richiamo l'impatto del meteorite
+    public void impattoMeteoriteFlotta(){
+        astrRandom.impattoMeteoriteAstronave();
+    }
+    
+    //richiamo la cura dell astronave
+    public void riparazione(){
+        astrRandom.riparazioneAstronave();
     }
 }

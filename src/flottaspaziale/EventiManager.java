@@ -21,13 +21,14 @@ public class EventiManager {
     
     //enumerato degli eventi, ci sono i miei eventi
     enum Evento{
-        alieniABordo,//alieni a bordo, danneggia o la naveo l'intera flotta
-        cura,//cura per l'equipaggio
-        riparazione,//riparazione della astronave o della flotta intera
-        asteroide;//la astronave o la flotta finisce su un campo di asteroidi
+        alieniABordo,//alieni a bordo, danneggia la nave o un mmbro dell' equipaggio DA FARE
+        cura,//cura per l'equipaggio FATTO
+        riparazione,//riparazione della astronave FATTO
+        asteroide,//la astronave o la flotta finisce su un campo di asteroidi subisce danni FATTO
+        avariaMotore;//il motore di un astronave va in avaria e viene distrutta la nave DA FARE
     }
     
-    //metodo per gestire il mi oenumerato del mio Evento
+    //metodo per gestire il mio enumerato del mio Evento
     public void gestioneEventi(){
         
     }

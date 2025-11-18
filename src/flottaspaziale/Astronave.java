@@ -6,6 +6,7 @@
 package flottaspaziale;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -15,6 +16,14 @@ public class Astronave {
     private ArrayList <MembroEquipaggio> equipaggio = new ArrayList();
     private ArrayList <Modulo> moduli = new ArrayList();
     private int vita;
+
+    //membro dell equipaggio random
+    Random membr = new Random();
+    MembroEquipaggio membroRandom = equipaggio.get(membr.nextInt(equipaggio.size()));
+    
+    //modulo dell astronave random (caso mai faccio qualche evento per i moduli)
+    Random modul = new Random();
+    Modulo moduloRandom = moduli.get(modul.nextInt(moduli.size()));
     
     //costruttore della classe
     public Astronave(){
@@ -75,5 +84,42 @@ public class Astronave {
     }
     
     //fare i metodi per la gestione degli eventi
+    
+    //impatto meteorite
+    public int impattoMeteoriteAstronave(){
+        int rdn = new Random().nextInt(10);
+        if(rdn > 8){
+            vita = 100;
+        }
+        else if (rdn < 8 && rdn > 3){
+            vita-= 50;
+        }
+        else if (rdn < 3){
+            vita = 0;
+        }
+        return vita;
+    }
+
+    //cura dell equipaggio
+    public void curaEquipaggioAstronave(){
+        membroRandom.curaEquipaggio();
+    }
+    
+    //riparazione dell'astronave
+    public int riparazioneAstronave(){
+        int rdn = new Random().nextInt(10);
+        if(rdn > 8){
+            vita += 100;
+        }
+        else if (rdn < 8 && rdn > 3){
+            vita+= 30;
+        }
+        else if (rdn < 3){
+            vita += 10;
+        }
+        return vita;
+    }
+    
+    //motore in avaria
     
 }

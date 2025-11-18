@@ -5,6 +5,8 @@
  */
 package flottaspaziale;
 
+import java.util.Random;
+
 /**
  *
  * @author lleshi.alessandro
@@ -44,6 +46,21 @@ public class MembroEquipaggio {
         this.salute = salute;
     }
     public int getSalute(){
+        return salute;
+    }
+    
+    //cura dell equipaggio
+    public int curaEquipaggio(){
+                int rdn = new Random().nextInt(10);
+        if(rdn > 8){
+            salute += 100;
+        }
+        else if (rdn < 8 && rdn > 3){
+            salute+= 30;
+        }
+        else if (rdn < 3){
+            salute += 10;
+        }
         return salute;
     }
 }
