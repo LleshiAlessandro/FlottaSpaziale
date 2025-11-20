@@ -63,4 +63,13 @@ public class MembroEquipaggio {
         }
         return salute;
     }
+    
+    public boolean checkRuolo(){
+        if (ruolo.equals("ingegnere")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

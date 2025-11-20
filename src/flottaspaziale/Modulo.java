@@ -12,6 +12,7 @@ package flottaspaziale;
 public class Modulo {
     private String nome;
     private boolean statoIntegrita;
+    private boolean ingegnere;
     
     //costruttore della classe
     public Modulo(String nome, boolean statoIntegrita){
@@ -26,6 +27,9 @@ public class Modulo {
     public String getNome(){
         return nome;
     }
+    public void setIng(boolean ing){
+        this.ingegnere = ing;
+    }
     
     //set e get dello statoIntegrita
     public void setStatoIntegrita(boolean statoIntegrita){
@@ -35,4 +39,13 @@ public class Modulo {
         return statoIntegrita;
     }
     
+    //motore in avaria da finire
+    public void motoreInAvariaModulo(){
+        if(ingegnere == true){
+            
+        }
+        else{
+            System.out.println(" non c'e' l' ingegnere ");
+        }
+    }
 }

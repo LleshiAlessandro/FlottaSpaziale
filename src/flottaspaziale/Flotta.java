@@ -57,4 +57,10 @@ public class Flotta {
     public void riparazione(){
         astrRandom.riparazioneAstronave();
     }
+    
+    //motore in avaria
+    public void motoreInAvariaFlotta(){
+        astrRandom.motoreInAvariaAstronave();
+    }
+    
 }

@@ -14,9 +14,10 @@ import java.util.Random;
  */
 public class Astronave {
     private ArrayList <MembroEquipaggio> equipaggio = new ArrayList();
-    private ArrayList <Modulo> moduli = new ArrayList();
+    private ArrayList <Modulo> moduli = new ArrayList(); //faccio partire la lista di moduli con il motore
     private int vita;
 
+    
     //membro dell equipaggio random
     Random membr = new Random();
     MembroEquipaggio membroRandom = equipaggio.get(membr.nextInt(equipaggio.size()));
@@ -120,6 +121,18 @@ public class Astronave {
         return vita;
     }
     
-    //motore in avaria
+    //check members x l'ingegnere da finire
+    public boolean checkMembers(){
+        if (membroRandom.checkRuolo() == false){
+            return false;
+        }
+        return true;
+    }
+    
+    
+    //motore in avaria da finire
+    public void motoreInAvariaAstronave(){
+        
+    }
     
 }
