@@ -17,6 +17,7 @@ public class Astronave {
     private ArrayList <Modulo> moduli = new ArrayList(); //faccio partire la lista di moduli con il motore
     private int vita;
 
+
     
     //membro dell equipaggio random
     Random membr = new Random();
@@ -121,18 +122,28 @@ public class Astronave {
         return vita;
     }
     
-    //check members x l'ingegnere da finire
+    //check members x l'ingegnere
     public boolean checkMembers(){
-        if (membroRandom.checkRuolo() == false){
-            return false;
+    boolean i = true;
+        for (MembroEquipaggio x : equipaggio){
+            if (x.checkRuolo() == false){
+                i = false;
+            }
+            i = true;
         }
-        return true;
+        return i;
     }
     
-    
-    //motore in avaria da finire
-    public void motoreInAvariaAstronave(){
-        
+    //malattia aliena
+    public ArrayList<MembroEquipaggio> malattiaAlienaAstronave(){
+                int half = equipaggio.size()/2;
+        ArrayList equipaggioDaRimuovere = new ArrayList(half);
+        for (MembroEquipaggio x : equipaggio){
+            equipaggioDaRimuovere.add(x);
+        }
+        for (int i = 0; i < equipaggioDaRimuovere.size(); i++){
+            equipaggio.remove(equipaggioDaRimuovere);
+        }
+        return equipaggio;
     }
-    
 }

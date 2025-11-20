@@ -60,7 +60,32 @@ public class Flotta {
     
     //motore in avaria
     public void motoreInAvariaFlotta(){
-        astrRandom.motoreInAvariaAstronave();
+    Random astronaves = new Random();
+    int probabilitaDiSalvataggio = new Random().nextInt(1, 10);
+    Astronave a1= astronavi.get(astronaves.nextInt(astronavi.size()));
+        if(a1.checkMembers() == false){
+            astronavi.remove(a1);
+        }
+        if(probabilitaDiSalvataggio <= 3){
+            astronavi.remove(a1);
+        }
     }
     
+    //buco nero
+    public ArrayList<Astronave> bucoNero(){
+        int half = astronavi.size()/2;
+        ArrayList astronaviDaRimuovere = new ArrayList(half);
+        for (Astronave x : astronavi){
+            astronaviDaRimuovere.add(x);
+        }
+        for (int i = 0; i < astronaviDaRimuovere.size(); i++){
+            astronavi.remove(astronaviDaRimuovere);
+        }
+        return astronavi;
+    }
+    
+    //malattia aliena
+    public void malattiaAlienaFlotta(){
+        astrRandom.malattiaAlienaAstronave();
+    }
 }
