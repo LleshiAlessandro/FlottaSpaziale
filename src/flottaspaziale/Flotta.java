@@ -84,8 +84,25 @@ public class Flotta {
         return astronavi;
     }
     
-    //malattia aliena
+    //richiamo la malattia aliena
     public void malattiaAlienaFlotta(){
         astrRandom.malattiaAlienaAstronave();
     }
+    
+
+    
+    //richiamo alieni a bordo
+    public void AlienABordo(Modulo moduloAlieno){
+        //alieno buono cura l'astronave e l'equipaggio, aggiunge dei moduli alieni
+        if(astrRandom.checkAlienAstronave() == 1){
+            astrRandom.curaAstronave(); //ripara l'astronave
+            astrRandom.addModuloAlieno(moduloAlieno); //da vedere se è giusto con il prof
+            astrRandom.curaEquipaggioAstronave(); //cura l'equipaggio dell' astronave
+        }
+        //alieno cattivo distrugge una nave
+        else if(astrRandom.checkAlienAstronave() == 2){
+            astronavi.remove(astrRandom);
+        }
+    }
+    
 }

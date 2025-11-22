@@ -51,7 +51,7 @@ public class MembroEquipaggio {
     
     //cura dell equipaggio
     public int curaEquipaggio(){
-                int rdn = new Random().nextInt(10);
+        int rdn = new Random().nextInt(10);
         if(rdn > 8){
             salute += 100;
         }

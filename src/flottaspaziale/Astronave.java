@@ -141,9 +141,48 @@ public class Astronave {
         for (MembroEquipaggio x : equipaggio){
             equipaggioDaRimuovere.add(x);
         }
-        for (int i = 0; i < equipaggioDaRimuovere.size(); i++){
+        for (int i = 0; i < equipaggioDaRimuovere.size(); i++){// in caso servisse un foreach si può fare
             equipaggio.remove(equipaggioDaRimuovere);
         }
         return equipaggio;
+    }
+    
+    //controllo se l'alieno è buono(1) o cattivo(2) x alieni a bordo
+    public int checkAlienAstronave(){
+        int checkAlien = 0;
+        int randAlien = new Random().nextInt(1,2);
+        
+        // alieno buono
+        if(randAlien == 1){
+            checkAlien = randAlien;
+        }
+        
+        // alieno cattivo
+        else if(randAlien == 2){
+            checkAlien = randAlien;
+        }
+        return checkAlien; //returna 1 o 2
+    }
+    
+    //alieno a bordo buono: cura l'astronave e aggiunge dei moduli
+    public int curaAstronave(){
+        int rdn = new Random().nextInt(10);
+        if(rdn > 8){
+            vita += 100;
+        }
+        else if (rdn < 8 && rdn > 3){
+            vita+= 30;
+        }
+        else if (rdn < 3){
+            vita += 10;
+        }
+        return vita;
+    }
+    //da vedere se è giusto con il prof
+    public ArrayList<Modulo> addModuloAlieno(Modulo moduloAlieno){
+        if (!moduli.contains(moduloAlieno)){
+            moduli.add(moduloAlieno);
+        }                
+        return moduli;
     }
 }
