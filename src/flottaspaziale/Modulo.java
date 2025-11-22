@@ -13,6 +13,19 @@ public class Modulo {
     private String nome;
     private boolean statoIntegrita;
     
+    
+    enum NomiModuli{
+        motore,
+        propulsore,
+        armi,
+        salaComandi,
+        porteDiScurezza,
+        dormitorio,
+        scudo,
+        gravita,//modulo per riportare la gravità nell'astronave
+        teletrasporto;
+    }
+    
     //costruttore della classe
     public Modulo(String nome, boolean statoIntegrita){
         this.nome = nome;

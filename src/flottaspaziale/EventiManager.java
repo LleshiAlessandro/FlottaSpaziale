@@ -27,10 +27,11 @@ public class EventiManager {
         cura,//cura per l'equipaggio FATTO
         riparazione,//riparazione della astronave FATTO
         asteroide,//la astronave finisce su un campo di asteroidi subisce danni FATTO
-        avariaMotore,//il motore di un astronave va in avaria e viene distrutta la nave FARE
+        avariaMotore,//il motore di un astronave va in avaria e viene distrutta la nave FATTO
         traditore,//in base al suo ruolo cambia quello che fa ad esembio ingegnere sabota il motore, etc etc DA FARE
         malattiaAliena,//uccide la metà dei membri FATTO (non sono sicuro quidni chiedere al prof)
         guastoModulo,//cambia lo stato del modulo e lo disattiva(modulo: ATTIVO; modulo: NON ATTIVO), quindi puoi perdere una nave DA FARE
+        mutaforma,//cambia il ruolo di una persona a caso DA FARE
         bucoNero;//ti viene rimossa metà della flotta FATTO (non sono sicuro quidni chiedere al prof)
     }
     

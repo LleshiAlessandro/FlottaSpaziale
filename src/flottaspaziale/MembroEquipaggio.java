@@ -17,6 +17,23 @@ public class MembroEquipaggio {
     private int salute;
     private boolean stato;
     
+    enum RuoliMembri{
+        comandante,
+        ingegnere,
+        medico,
+        direttore,
+        traditore,
+        magazziniere,
+        sottoposto,
+        cartografo,
+        alienologo,
+        addettoAllePuluzzie,
+        mutaforma,
+        pilota,
+        capoDellEsercito,
+        soldato;
+    }
+    
     //costruttore della classe
     public MembroEquipaggio(String nome,String ruolo,int salute,boolean stato){
         this.nome = nome;
