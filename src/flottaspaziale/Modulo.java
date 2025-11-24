@@ -14,7 +14,7 @@ public class Modulo {
     private boolean statoIntegrita;
     
     
-    public enum NomiModuli{
+    public static enum NomiModuli{
         motore,
         alieno,
         propulsore,
@@ -27,10 +27,20 @@ public class Modulo {
         teletrasporto;
     }
     
+    public static NomiModuli fromString(String nomeModulo){
+        for (NomiModuli x : NomiModuli.values()){
+            nomeModulo.equals(x.name());
+            if(nomeModulo.equals(x.name())){
+                return x;
+            }
+        }
+        return null;
+    }
+    
     //costruttore della classe
-    public Modulo(NomiModuli nome, boolean statoIntegrita){
+    public Modulo(NomiModuli nome){
         this.nome = nome;
-        this.statoIntegrita = statoIntegrita;
+        this.statoIntegrita = true;
     }
     
     //set e get del nome
@@ -49,4 +59,8 @@ public class Modulo {
         return statoIntegrita;
     }
     
+    @Override
+    public String toString(){
+        return " le caratteristiche del modulo sono : " + " nome : " + nome + "\n" + " stato : " + statoIntegrita;
+    }
 }

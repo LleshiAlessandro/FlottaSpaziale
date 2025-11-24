@@ -19,15 +19,16 @@ public class Astronave {
     private ArrayList <Modulo> moduli = new ArrayList(); //faccio partire la lista di moduli con il motore
     private int vita;
 
-
+    //costruttore della classe
+    public Astronave(){
+        this.vita = 100;
+    }
     
     //membro dell equipaggio random
     Random membr = new Random();
-    MembroEquipaggio membroRandom = equipaggio.get(membr.nextInt(equipaggio.size()));
+
     
-    //modulo dell astronave random (caso mai faccio qualche evento per i moduli)
-    Random modul = new Random();
-    Modulo moduloRandom = moduli.get(modul.nextInt(moduli.size()));
+
     
     //costruttore della classe
     public Astronave(String n){
@@ -101,6 +102,7 @@ public class Astronave {
 
     //cura dell equipaggio
     public void curaEquipaggioAstronave(){
+        MembroEquipaggio membroRandom = equipaggio.get(membr.nextInt(equipaggio.size()));
         membroRandom.curaEquipaggio();
     }
     
@@ -159,7 +161,7 @@ public class Astronave {
     //controllo se l'alieno è buono(1) o cattivo(2) x alieni a bordo
     public int checkAlienAstronave(){
         int checkAlien = 0;
-        int randAlien = new Random().nextInt(2);
+        int randAlien = new Random().nextInt(1, 2);
         
         // alieno buono
         if(randAlien == 1){
@@ -175,11 +177,11 @@ public class Astronave {
     
     //cosa fa l' alieno a bordo buono: cura l'astronave e aggiunge dei moduli
     public int curaAstronave(){
-        int rdn = new Random().nextInt(10);
+        int rdn = new Random().nextInt(1, 10);
         if(rdn > 8){
-            vita += 100;
+            vita = 100;
         }
-        else if (rdn < 8 && rdn > 3){
+        else if (rdn < 8 && rdn > 3 && vita <= 70){
             vita+= 30;
         }
         else if (rdn < 3){
@@ -188,7 +190,7 @@ public class Astronave {
         return vita;
     }
     public ArrayList<Modulo> addModuloAlieno(){
-        Modulo m = new Modulo(NomiModuli.alieno, true);
+        Modulo m = new Modulo(NomiModuli.alieno);
         if (!moduli.contains(m)){
             moduli.add(m);
         }                

@@ -16,6 +16,7 @@ import java.util.Random;
 public class Flotta {
     private String nome;
     private ArrayList<Astronave> astronavi = new ArrayList();
+    private Astronave astrRandom;
     
     //costruttore della classe
     public Flotta(String nome){
@@ -45,9 +46,7 @@ public class Flotta {
         return astronavi;
     }
     
-    //scelgo l'astronave randomica dalla flotta, alla quale capiterà un evento
-    Random astr = new Random();
-    Astronave astrRandom = astronavi.get(astr.nextInt(astronavi.size()));
+
     
     //richiamo l'impatto del meteorite FATTO
     public void impattoMeteoriteFlotta(){
@@ -113,41 +112,43 @@ public class Flotta {
     }
     
     public void eventoCasuale(Evento generazineEventi){
-        Flotta f = new Flotta(nome);
-        
+        //scelgo l'astronave randomica dalla flotta, alla quale capiterà un evento
+        Random astr = new Random();
+        astrRandom = astronavi.get(astr.nextInt(astronavi.size()));
+
         //alieni a bordo
         if(generazineEventi == Evento.alieniABordo){
-            f.AlienABordo();
+            this.AlienABordo();
         }
         
         //impatto meteorite
         if(generazineEventi == Evento.asteroide){
-            f.impattoMeteoriteFlotta();
+            this.impattoMeteoriteFlotta();
         }
         
         //malattia aliena
         if(generazineEventi == Evento.malattiaAliena){
-            f.malattiaAlienFlotta();
+            this.malattiaAlienFlotta();
         }
         
         //cura
         if(generazineEventi == Evento.riparazione){
-            f.riparazione();
+            this.riparazione();
         }
         
         //motore in avaria
         if(generazineEventi == Evento.avariaMotore){
-            f.motoreInAvariaFlotta();
+            this.motoreInAvariaFlotta();
         }
         
         //cura dell' equipaggio
         if(generazineEventi == Evento.cura){
-            f.curaEquipaggioFlotta();
+            this.curaEquipaggioFlotta();
         }
         
         //buco nero
         if(generazineEventi == Evento.cura){
-            f.bucoNero();
+            this.bucoNero();
         }
     }
     

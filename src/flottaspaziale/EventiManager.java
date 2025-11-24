@@ -27,9 +27,14 @@ public class EventiManager {
     }
     
     //metodo per gestire il mio enumerato del mio Evento
-    public Evento generazineEventi(){
+    public Evento generazioneEventi(){
         int eventoRandom = new Random().nextInt(Evento.values().length);
         Evento eventRdn = Evento.values()[eventoRandom];
         return eventRdn;
+    }
+    
+    @Override
+    public String toString(){
+        return " l'evento casueale e' : " + String.valueOf(generazioneEventi());
     }
 }

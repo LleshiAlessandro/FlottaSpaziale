@@ -16,14 +16,13 @@ public class MembroEquipaggio {
     private String ruolo;
     private int salute;
     private boolean stato;
-    private boolean traditore;
     
     //costruttore della classe
-    public MembroEquipaggio(String nome,String ruolo,int salute,boolean stato){
+    public MembroEquipaggio(String nome,String ruolo){
         this.nome = nome;
         this.ruolo = ruolo;
-        this.salute = salute;
-        this.stato = stato;
+        this.salute = 100;
+        this.stato = true;
     }
     
     //set e get del nome
@@ -72,9 +71,6 @@ public class MembroEquipaggio {
         else if (ruolo.equals("medico")){
             return true;
         }
-        else if (ruolo.equals("traditore")){
-            return true;
-        }
         else{
             return false;
         }
@@ -82,6 +78,6 @@ public class MembroEquipaggio {
     
     @Override
     public String toString(){
-        return " ";
+        return " le caratteristiche dell' membro dell' equipaggio sono : " + " nome : " + nome + "\n" + " ruolo : " + ruolo + "\n" + " vita : " + salute + " stato : " + stato;
     }
 }
