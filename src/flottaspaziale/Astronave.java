@@ -5,6 +5,7 @@
  */
 package flottaspaziale;
 
+import flottaspaziale.Modulo.NomiModuli;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -13,6 +14,7 @@ import java.util.Random;
  * @author lleshi.alessandro
  */
 public class Astronave {
+    private String nome;
     private ArrayList <MembroEquipaggio> equipaggio = new ArrayList();
     private ArrayList <Modulo> moduli = new ArrayList(); //faccio partire la lista di moduli con il motore
     private int vita;
@@ -28,21 +30,16 @@ public class Astronave {
     Modulo moduloRandom = moduli.get(modul.nextInt(moduli.size()));
     
     //costruttore della classe
-    public Astronave(){
+    public Astronave(String n){
+        this.nome = n;
     }
     
-    //set e get dei membri
-    public  void setEquipaggio(MembroEquipaggio membro){
-        equipaggio.add(membro);
-    }
+    //get dei membri
     public ArrayList<MembroEquipaggio> getEquipaggio(){
         return equipaggio;
     }
     
-    //set e get dei moduli
-    public  void setModulo(Modulo moduls){
-        moduli.add(moduls);
-    }
+    //get dei moduli
     public ArrayList<Modulo> getModulo(){
         return moduli;
     }
@@ -122,8 +119,20 @@ public class Astronave {
         return vita;
     }
     
-    //check members x l'ingegnere
-    public boolean checkMembers(){
+    //check member x l'ingegnere
+    public boolean checkMemberIngegnere(){
+    boolean i = true;
+        for (MembroEquipaggio x : equipaggio){
+            if (x.checkRuolo() == false){
+                i = false;
+            }
+            i = true;
+        }
+        return i;
+    }
+    
+    //check member x il medico
+    public boolean checkMemberMedico(){
     boolean i = true;
         for (MembroEquipaggio x : equipaggio){
             if (x.checkRuolo() == false){
@@ -136,7 +145,7 @@ public class Astronave {
     
     //malattia aliena
     public ArrayList<MembroEquipaggio> malattiaAlienaAstronave(){
-                int half = equipaggio.size()/2;
+        int half = equipaggio.size()/2;
         ArrayList equipaggioDaRimuovere = new ArrayList(half);
         for (MembroEquipaggio x : equipaggio){
             equipaggioDaRimuovere.add(x);
@@ -150,7 +159,7 @@ public class Astronave {
     //controllo se l'alieno è buono(1) o cattivo(2) x alieni a bordo
     public int checkAlienAstronave(){
         int checkAlien = 0;
-        int randAlien = new Random().nextInt(1,2);
+        int randAlien = new Random().nextInt(2);
         
         // alieno buono
         if(randAlien == 1){
@@ -164,7 +173,7 @@ public class Astronave {
         return checkAlien; //returna 1 o 2
     }
     
-    //alieno a bordo buono: cura l'astronave e aggiunge dei moduli
+    //cosa fa l' alieno a bordo buono: cura l'astronave e aggiunge dei moduli
     public int curaAstronave(){
         int rdn = new Random().nextInt(10);
         if(rdn > 8){
@@ -178,11 +187,16 @@ public class Astronave {
         }
         return vita;
     }
-    //da vedere se è giusto con il prof
-    public ArrayList<Modulo> addModuloAlieno(Modulo moduloAlieno){
-        if (!moduli.contains(moduloAlieno)){
-            moduli.add(moduloAlieno);
+    public ArrayList<Modulo> addModuloAlieno(){
+        Modulo m = new Modulo(NomiModuli.alieno, true);
+        if (!moduli.contains(m)){
+            moduli.add(m);
         }                
         return moduli;
+    }
+    
+    @Override
+    public String toString(){
+        return " il  nome dell' astronave e' : " + nome + "\n" + " la vita dell' astronave e' : " + vita + "\n" + " il numero di membri che compongolo l'equipaggio dell' astronave sono : " + equipaggio.size() + "\n" + "i moduli che compongolo l' astronave sono : " + moduli.size();
     }
 }

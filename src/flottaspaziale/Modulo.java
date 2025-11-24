@@ -10,12 +10,13 @@ package flottaspaziale;
  * @author lleshi.alessandro
  */
 public class Modulo {
-    private String nome;
+    private NomiModuli nome;
     private boolean statoIntegrita;
     
     
-    enum NomiModuli{
+    public enum NomiModuli{
         motore,
+        alieno,
         propulsore,
         armi,
         salaComandi,
@@ -27,16 +28,16 @@ public class Modulo {
     }
     
     //costruttore della classe
-    public Modulo(String nome, boolean statoIntegrita){
+    public Modulo(NomiModuli nome, boolean statoIntegrita){
         this.nome = nome;
         this.statoIntegrita = statoIntegrita;
     }
     
     //set e get del nome
-    public void setNome(String nome){
+    public void setNome(NomiModuli nome){
         this.nome = nome;
     }
-    public String getNome(){
+    public NomiModuli getNome(){
         return nome;
     }
     

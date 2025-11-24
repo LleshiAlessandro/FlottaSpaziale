@@ -15,7 +15,9 @@ public class FlottaSpaziale {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Flotta flotta = new Flotta("pietro");
         
+        EventiManager events = new EventiManager();
         
         
     }

@@ -16,23 +16,7 @@ public class MembroEquipaggio {
     private String ruolo;
     private int salute;
     private boolean stato;
-    
-    enum RuoliMembri{
-        comandante,
-        ingegnere,
-        medico,
-        direttore,
-        traditore,
-        magazziniere,
-        sottoposto,
-        cartografo,
-        alienologo,
-        addettoAllePuluzzie,
-        mutaforma,
-        pilota,
-        capoDellEsercito,
-        soldato;
-    }
+    private boolean traditore;
     
     //costruttore della classe
     public MembroEquipaggio(String nome,String ruolo,int salute,boolean stato){
@@ -85,8 +69,19 @@ public class MembroEquipaggio {
         if (ruolo.equals("ingegnere")){
             return true;
         }
+        else if (ruolo.equals("medico")){
+            return true;
+        }
+        else if (ruolo.equals("traditore")){
+            return true;
+        }
         else{
             return false;
         }
+    }
+    
+    @Override
+    public String toString(){
+        return " ";
     }
 }

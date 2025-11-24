@@ -5,6 +5,7 @@
  */
 package flottaspaziale;
 
+import flottaspaziale.EventiManager.Evento;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -48,22 +49,27 @@ public class Flotta {
     Random astr = new Random();
     Astronave astrRandom = astronavi.get(astr.nextInt(astronavi.size()));
     
-    //richiamo l'impatto del meteorite
+    //richiamo l'impatto del meteorite FATTO
     public void impattoMeteoriteFlotta(){
         astrRandom.impattoMeteoriteAstronave();
     }
     
-    //richiamo la cura dell astronave
+    //richiamo la cura dell astronave FATTO
     public void riparazione(){
         astrRandom.riparazioneAstronave();
     }
     
-    //motore in avaria
+    //cura dell equipaggio FATTO
+    public void curaEquipaggioFlotta(){
+        astrRandom.curaEquipaggioAstronave();
+    }
+    
+    //motore in avaria FATTO
     public void motoreInAvariaFlotta(){
     Random astronaves = new Random();
-    int probabilitaDiSalvataggio = new Random().nextInt(1, 10);
+    int probabilitaDiSalvataggio = new Random().nextInt(11);
     Astronave a1= astronavi.get(astronaves.nextInt(astronavi.size()));
-        if(a1.checkMembers() == false){
+        if(a1.checkMemberIngegnere() == false){
             astronavi.remove(a1);
         }
         if(probabilitaDiSalvataggio <= 3){
@@ -71,7 +77,7 @@ public class Flotta {
         }
     }
     
-    //buco nero
+    //buco nero FATTO
     public ArrayList<Astronave> bucoNero(){
         int half = astronavi.size()/2;
         ArrayList astronaviDaRimuovere = new ArrayList(half);
@@ -84,19 +90,20 @@ public class Flotta {
         return astronavi;
     }
     
-    //richiamo la malattia aliena
-    public void malattiaAlienaFlotta(){
-        astrRandom.malattiaAlienaAstronave();
+    //malattia aliena FATTO
+    public void malattiaAlienFlotta(){
+    int probabilitaDiSalvataggio = new Random().nextInt(11);
+        if(astrRandom.checkMemberMedico() == false){
+            astrRandom.malattiaAlienaAstronave();
+        }
     }
     
-
-    
-    //richiamo alieni a bordo
-    public void AlienABordo(Modulo moduloAlieno){
+    //richiamo alieni a bordo FATTO
+    public void AlienABordo(){
         //alieno buono cura l'astronave e l'equipaggio, aggiunge dei moduli alieni
         if(astrRandom.checkAlienAstronave() == 1){
             astrRandom.curaAstronave(); //ripara l'astronave
-            astrRandom.addModuloAlieno(moduloAlieno); //da vedere se è giusto con il prof
+            astrRandom.addModuloAlieno(); //da vedere se è giusto con il prof
             astrRandom.curaEquipaggioAstronave(); //cura l'equipaggio dell' astronave
         }
         //alieno cattivo distrugge una nave
@@ -105,4 +112,47 @@ public class Flotta {
         }
     }
     
+    public void eventoCasuale(Evento generazineEventi){
+        Flotta f = new Flotta(nome);
+        
+        //alieni a bordo
+        if(generazineEventi == Evento.alieniABordo){
+            f.AlienABordo();
+        }
+        
+        //impatto meteorite
+        if(generazineEventi == Evento.asteroide){
+            f.impattoMeteoriteFlotta();
+        }
+        
+        //malattia aliena
+        if(generazineEventi == Evento.malattiaAliena){
+            f.malattiaAlienFlotta();
+        }
+        
+        //cura
+        if(generazineEventi == Evento.riparazione){
+            f.riparazione();
+        }
+        
+        //motore in avaria
+        if(generazineEventi == Evento.avariaMotore){
+            f.motoreInAvariaFlotta();
+        }
+        
+        //cura dell' equipaggio
+        if(generazineEventi == Evento.cura){
+            f.curaEquipaggioFlotta();
+        }
+        
+        //buco nero
+        if(generazineEventi == Evento.cura){
+            f.bucoNero();
+        }
+    }
+    
+    @Override
+    public String toString(){
+        return "il nome della flotta e' : " + nome + "\n" + " il numero di astronavi contenute nella flotta e' : " + getNumAstronaviInFlotta();
+    }
 }
