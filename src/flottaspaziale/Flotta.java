@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class Flotta {
     private String nome;
-    private ArrayList<Astronave> astronavi = new ArrayList();
+    protected ArrayList<Astronave> astronavi = new ArrayList();
     private Astronave astrRandom;
     
     //costruttore della classe

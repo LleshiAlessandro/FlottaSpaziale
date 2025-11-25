@@ -10,7 +10,7 @@ package flottaspaziale;
  * @author lleshi.alessandro
  */
 public class Modulo {
-    private NomiModuli nome;
+    protected NomiModuli nome;
     private boolean statoIntegrita;
     
     

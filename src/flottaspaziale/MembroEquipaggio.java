@@ -12,8 +12,8 @@ import java.util.Random;
  * @author lleshi.alessandro
  */
 public class MembroEquipaggio {
-    private String nome;
-    private String ruolo;
+    protected String nome;
+    protected String ruolo;
     private int salute;
     private boolean stato;
     

@@ -15,8 +15,8 @@ import java.util.Random;
  */
 public class Astronave {
     private String nome;
-    private ArrayList <MembroEquipaggio> equipaggio = new ArrayList();
-    private ArrayList <Modulo> moduli = new ArrayList(); //faccio partire la lista di moduli con il motore
+    protected ArrayList <MembroEquipaggio> equipaggio = new ArrayList();
+    protected ArrayList <Modulo> moduli = new ArrayList(); //faccio partire la lista di moduli con il motore
     private int vita;
 
     //costruttore della classe
@@ -27,7 +27,11 @@ public class Astronave {
     //membro dell equipaggio random
     Random membr = new Random();
 
-    
+    public ArrayList<Modulo> getModuli() {
+        return moduli;
+    }
+
+
 
     
     //costruttore della classe
